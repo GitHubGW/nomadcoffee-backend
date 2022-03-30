@@ -5,6 +5,10 @@ export default gql`
     id: Int!
     email: String!
     username: String!
+    name: String
+    location: String
+    avatarUrl: String
+    githubUsername: String
     createdAt: String!
     updatedAt: String!
   }

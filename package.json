@@ -19,10 +19,12 @@
     "@graphql-tools/schema": "^8.3.5",
     "@prisma/client": "^3.11.1",
     "apollo-server": "^3.6.6",
+    "bcrypt": "^5.0.1",
     "dotenv": "^16.0.0",
     "graphql": "^16.3.0"
   },
   "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
     "nodemon": "^2.0.15",
     "prisma": "^3.11.1",
     "ts-node": "^10.7.0",
