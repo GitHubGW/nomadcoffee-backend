@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec ts-node src/server --ext ts,js",
+    "start": "cross-env NODE_ENV=development nodemon --exec ts-node src/server --ext ts,js",
     "migrate": "npx prisma migrate dev",
     "studio": "npx prisma studio",
     "reset": "npx prisma migrate reset",
@@ -18,13 +18,21 @@
     "@graphql-tools/merge": "^8.2.6",
     "@graphql-tools/schema": "^8.3.5",
     "@prisma/client": "^3.11.1",
+    "@types/jsonwebtoken": "^8.5.8",
     "apollo-server": "^3.6.6",
+    "apollo-server-express": "^3.6.7",
     "bcrypt": "^5.0.1",
+    "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
-    "graphql": "^16.3.0"
+    "express": "^4.17.3",
+    "graphql": "^16.3.0",
+    "graphql-upload": "^13.0.0",
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",
+    "@types/express": "^4.17.13",
+    "@types/graphql-upload": "^8.0.11",
     "nodemon": "^2.0.15",
     "prisma": "^3.11.1",
     "ts-node": "^10.7.0",
