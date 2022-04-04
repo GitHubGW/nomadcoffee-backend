@@ -14,7 +14,7 @@ const resolvers: Resolvers = {
   Query: {
     seeProfile: async (_: any, { username }: SeeProfileArgs, { prisma }: Context): Promise<SeeProfileResult> => {
       try {
-        const foundUser: User | null = await prisma.user.findFirst({ where: { username } });
+        const foundUser: User | null = await prisma.user.findFirst({ where: { username }, include: { following: true, followers: true } });
         if (foundUser === null) {
           return { ok: false, message: "존재하지 않는 유저입니다." };
         }

@@ -6,4 +6,12 @@ export default gql`
     message: String!
     id: Int
   }
+
+  type SeeFollowResult {
+    ok: Boolean!
+    message: String!
+    users: [User]
+    totalPages: Int
+    totalFollow: Int
+  }
 `;
