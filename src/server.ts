@@ -23,8 +23,8 @@ const startServer = async () => {
   app.use(graphqlUploadExpress());
   app.use("/uploads", express.static("uploads"));
   apolloServer.applyMiddleware({ app });
-  await new Promise<void>((fn) => app.listen({ port: 4000 }, fn));
-  console.log(`🚀 http://localhost:4000${apolloServer.graphqlPath}`);
+  await new Promise<void>((fn) => app.listen({ port: process.env.PORT }, fn));
+  console.log(`🚀 http://localhost:${process.env.PORT}${apolloServer.graphqlPath}`);
 };
 
 startServer();
