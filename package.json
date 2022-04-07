@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon --exec ts-node src/server --ext ts,js",
+    "dev": "cross-env NODE_ENV=development nodemon --exec ts-node src/server --ext ts,js",
+    "start": "node dist/server.js",
     "migrate": "npx prisma migrate dev",
     "studio": "npx prisma studio",
     "reset": "npx prisma migrate reset",
-    "status": "npx prisma migrate status"
+    "status": "npx prisma migrate status",
+    "build": "npx tsc"
   },
   "keywords": [],
   "author": "GW <kowonp@gmail.com>",

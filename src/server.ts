@@ -9,6 +9,7 @@ import { mergedResolvers, mergedTypeDefs } from "./schema";
 
 const startServer = async () => {
   const apolloServer: ApolloServer<ExpressContext> = new ApolloServer({
+    introspection: true,
     typeDefs: mergedTypeDefs,
     resolvers: mergedResolvers,
     context: async ({ req }) => {
