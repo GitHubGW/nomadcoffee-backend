@@ -17,7 +17,7 @@ const startServer = async () => {
       return { prisma, loggedInUser };
     },
     introspection: true,
-    plugins: [ApolloServerPluginLandingPageDisabled()],
+    plugins: [ApolloServerPluginLandingPageProductionDefault({ footer: true })],
   });
   await apolloServer.start();
 
