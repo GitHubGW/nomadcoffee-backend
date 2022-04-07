@@ -6,16 +6,18 @@ import prisma from "./prisma";
 import { handleGetLoggedInUser } from "./users/user.utils";
 import { User } from ".prisma/client";
 import { mergedResolvers, mergedTypeDefs } from "./schema";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 
 const startServer = async () => {
   const apolloServer: ApolloServer<ExpressContext> = new ApolloServer({
-    introspection: true,
     typeDefs: mergedTypeDefs,
     resolvers: mergedResolvers,
     context: async ({ req }) => {
       const loggedInUser: User | null = await handleGetLoggedInUser(req.headers.token);
       return { prisma, loggedInUser };
     },
+    introspection: true,
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   });
   await apolloServer.start();
 
