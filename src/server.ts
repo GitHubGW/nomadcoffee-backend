@@ -6,7 +6,7 @@ import prisma from "./prisma";
 import { handleGetLoggedInUser } from "./users/user.utils";
 import { User } from ".prisma/client";
 import { mergedResolvers, mergedTypeDefs } from "./schema";
-import { ApolloServerPluginLandingPageDisabled, ApolloServerPluginLandingPageGraphQLPlayground, ApolloServerPluginLandingPageProductionDefault } from "apollo-server-core";
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core";
 
 const startServer = async () => {
   const apolloServer: ApolloServer<ExpressContext> = new ApolloServer({
@@ -17,7 +17,7 @@ const startServer = async () => {
       return { prisma, loggedInUser };
     },
     introspection: true,
-    plugins: [ApolloServerPluginLandingPageProductionDefault({ footer: true })],
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
   });
   await apolloServer.start();
 
