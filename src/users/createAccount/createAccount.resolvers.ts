@@ -20,7 +20,7 @@ const resolvers: Resolvers = {
         }
         const hashedPassword: string = await bcrypt.hash(password, 10);
         const createdUser: User = await prisma.user.create({ data: { email, username, name, password: hashedPassword } });
-        return { ok: false, message: "계정 생성에 성공하였습니다.", id: createdUser.id };
+        return { ok: true, message: "계정 생성에 성공하였습니다.", id: createdUser.id };
       } catch (error) {
         console.log("createAccount error");
         return { ok: false, message: "계정 생성에 실패하였습니다." };
