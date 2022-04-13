@@ -5,6 +5,7 @@ export default gql`
     ok: Boolean!
     message: String!
     coffeeShops: [CoffeeShop]
+    totalCoffeeShops: Int!
   }
 
   type Query {
