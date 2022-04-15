@@ -10,6 +10,7 @@
     "studio": "npx prisma studio",
     "reset": "npx prisma migrate reset",
     "status": "npx prisma migrate status",
+    "heroku-postbuild": "ng build --prod",
     "build": "npx tsc"
   },
   "keywords": [],
