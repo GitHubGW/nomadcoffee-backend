@@ -25,7 +25,7 @@ const resolvers: Resolvers = {
             return { ok: false, message: "이미 존재하는 커피숍 이름입니다." };
           }
 
-          if (process.env.NODE_ENV === "development" && category) {
+          if (category) {
             foundCategory = await prisma.category.findUnique({ where: { name: category } });
 
             if (foundCategory === null) {
