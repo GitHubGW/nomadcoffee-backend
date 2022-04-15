@@ -16,8 +16,8 @@ const resolvers: Resolvers = {
     seeCoffeeShops: async (_: any, { page = 1 }: SeeCoffeeShopsArgs, { prisma }: Context): Promise<SeeCoffeeShopsResult> => {
       try {
         const foundCoffeeShops: CoffeeShop[] = await prisma.coffeeShop.findMany({
-          skip: (page - 1) * 5,
-          take: 5,
+          skip: (page - 1) * 6,
+          take: 6,
           include: { categories: true, user: true },
           orderBy: { createdAt: "desc" },
         });
