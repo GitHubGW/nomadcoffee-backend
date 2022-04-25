@@ -18,7 +18,7 @@ const resolvers: Resolvers = {
         const foundCoffeeShops: CoffeeShop[] = await prisma.coffeeShop.findMany({
           skip: (page - 1) * 6,
           take: 6,
-          include: { categories: true, user: true },
+          include: { categories: true, user: true, coffeeShopPhotos: true },
           orderBy: { createdAt: "desc" },
         });
         const countedCoffeeShops: number = await prisma.coffeeShop.count();
