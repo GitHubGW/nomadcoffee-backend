@@ -16,9 +16,15 @@ const resolvers: Resolvers = {
 
         let foundCoffeeShops: CoffeeShop[] = [];
         if (name) {
-          foundCoffeeShops = await prisma.coffeeShop.findMany({ where: { name: { contains: name } } });
+          foundCoffeeShops = await prisma.coffeeShop.findMany({
+            where: { name: { contains: name } },
+            include: { user: true, categories: true, coffeeShopPhotos: true },
+          });
         } else if (categoryName) {
-          foundCoffeeShops = await prisma.coffeeShop.findMany({ where: { categories: { some: { name: categoryName } } } });
+          foundCoffeeShops = await prisma.coffeeShop.findMany({
+            where: { categories: { some: { name: categoryName } } },
+            include: { user: true, categories: true, coffeeShopPhotos: true },
+          });
         }
         return foundCoffeeShops;
       } catch (error) {
