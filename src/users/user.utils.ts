@@ -17,7 +17,7 @@ export const handleGetLoggedInUser = async (token?: string | string[]): Promise<
     const foundUser: User | null = await prisma.user.findUnique({ where: { id: payload.id } });
     return foundUser;
   } catch (error) {
-    // console.log("로그인이 필요합니다.");
+    console.log("로그인이 필요합니다.");
     return null;
   }
 };
